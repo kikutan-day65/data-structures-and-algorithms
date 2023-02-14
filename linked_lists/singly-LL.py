@@ -185,6 +185,24 @@ class LinkedList:
 
     #=====================================================================================================
 
+    def reverse(self):
+        # swap the head and tail
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp   
+
+        # set before and after of temp
+        after = temp.next
+        before = None                
+
+        # iterate through the entire linked list
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+
+    #=====================================================================================================
 
 append_ll = LinkedList(4)
 append_ll.append(2)
@@ -247,3 +265,12 @@ remove_ll.append(9)
 remove_ll.append(10)
 remove_ll.remove(2)
 remove_ll.print_list()
+
+print()
+
+reverse_ll = LinkedList(2)
+reverse_ll.append(3)
+reverse_ll.append(4)
+reverse_ll.append(5)
+reverse_ll.reverse()
+reverse_ll.print_list()
