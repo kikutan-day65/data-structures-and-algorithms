@@ -14,6 +14,7 @@ class LinkedList:
         self.tail = new_node    # assign the first one as a tail
         self.length = 1     # keep track of the length
     
+    #=====================================================================================================
 
     def print_list(self):
         temp = self.head
@@ -21,6 +22,7 @@ class LinkedList:
             print(temp.value, end=" ")
             temp = temp.next
     
+    #=====================================================================================================
 
     def append(self, value):
         new_node = Node(value)  # create a new node object
@@ -38,6 +40,7 @@ class LinkedList:
         self.length += 1
         return True
 
+    #=====================================================================================================
 
     def pop(self):
         # when the linked list is empty
@@ -64,6 +67,26 @@ class LinkedList:
 
         return temp # return popped an item
 
+    #=====================================================================================================
+
+    def prepend(self, value):
+        new_node = Node(value)
+
+        # when the linked list is empty
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        
+        # otherwise
+        else:
+            new_node.next = self.head
+            self.head = new_node
+
+        self.length += 1
+
+        return True
+    
+    #=====================================================================================================
 
 
 append_ll = LinkedList(4)
@@ -78,3 +101,13 @@ pop_ll.append(9)
 pop_ll.append(6)
 pop_ll.pop()
 pop_ll.print_list()
+
+print()
+
+prepend_ll = LinkedList(1)
+prepend_ll.append(7)
+prepend_ll.append(8)
+prepend_ll.prepend(3)
+prepend_ll.print_list()
+
+print()
