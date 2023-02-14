@@ -113,15 +113,23 @@ class LinkedList:
         if index < 0 or index >= self.length:
             return None
 
+        # otherwise
         temp = self.head
         for _ in range(index):
             temp = temp.next
 
-        return temp.value
+        return temp # to use set_value() return this, but to use only get() return temp.value
 
     #=====================================================================================================
 
+    def set_value(self, index, value):
+        temp = self.get(index)
 
+        if temp:
+            temp.value = value
+            return True
+        
+        return False
 
 append_ll = LinkedList(4)
 append_ll.append(2)
@@ -161,3 +169,9 @@ get_ll.append(10)
 print(get_ll.get(2))
 
 print()
+
+set_value_ll = LinkedList(3)
+set_value_ll.append(4)
+set_value_ll.append(5)
+set_value_ll.set_value(1, 23)
+set_value_ll.print_list()
