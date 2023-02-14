@@ -1,6 +1,6 @@
 # Node class
 class Node:
-    def __init__(self, value):
+    def __init__(self, value=None):
         self.value = value
         self.next = None
 
@@ -88,6 +88,27 @@ class LinkedList:
     
     #=====================================================================================================
 
+    def pop_first(self):
+        # when the linked list is empty
+        if self.length == 0:
+            return None
+
+        # otherwise
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+
+        # when the linked list has only one item
+        # length should be 0 after the popping the first item
+        if self.length == 0:
+            self.tail = None
+        
+        return temp
+
+    #=====================================================================================================
+
+    
 
 append_ll = LinkedList(4)
 append_ll.append(2)
@@ -109,5 +130,13 @@ prepend_ll.append(7)
 prepend_ll.append(8)
 prepend_ll.prepend(3)
 prepend_ll.print_list()
+
+print()
+
+pop_first_ll = LinkedList(3)
+pop_first_ll.append(4)
+pop_first_ll.append(5)
+pop_first_ll.pop_first()
+pop_first_ll.print_list()
 
 print()
