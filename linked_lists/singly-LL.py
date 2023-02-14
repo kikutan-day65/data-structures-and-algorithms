@@ -131,6 +131,32 @@ class LinkedList:
         
         return False
 
+    #=====================================================================================================
+
+    def insert(self, index, value):
+        # check if the index is valid
+        if index < 0 or index > self.length:
+            return False
+
+        # when the index is 0
+        if index == 0:
+            return self.prepend(value)
+        
+        # when the index is equal to the length of linked list
+        if index == self.length:
+            return self.append(value)
+        
+        # otherwise
+        new_node = Node(value)
+
+        temp = self.get(index - 1)
+        new_node.next = temp.next
+        temp.next = new_node
+
+        self.length += 1
+
+        return True
+
 append_ll = LinkedList(4)
 append_ll.append(2)
 append_ll.print_list()
@@ -175,3 +201,11 @@ set_value_ll.append(4)
 set_value_ll.append(5)
 set_value_ll.set_value(1, 23)
 set_value_ll.print_list()
+
+print()
+
+insert_ll = LinkedList(7)
+insert_ll.append(8)
+insert_ll.append(9)
+insert_ll.insert(2, 43)
+insert_ll.print_list()
