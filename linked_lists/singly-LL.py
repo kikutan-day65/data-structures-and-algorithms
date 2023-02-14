@@ -156,6 +156,33 @@ class LinkedList:
         self.length += 1
 
         return True
+    
+    #=====================================================================================================
+
+    def remove(self, index):
+        # check if the index is valid
+        if index < 0 or index >= self.length:
+            return None
+        
+        # when the index is 0
+        if index == 0:
+            return self.pop_first()
+        
+        # when the index is equal to the last item
+        if index == self.length - 1:
+            return self.pop()
+        
+        # otherwise
+        prev = self.get(index - 1)
+        temp = prev.next
+
+        prev.next = temp.next
+        temp.next = None
+
+        return temp
+
+    #=====================================================================================================
+
 
 append_ll = LinkedList(4)
 append_ll.append(2)
@@ -209,3 +236,12 @@ insert_ll.append(8)
 insert_ll.append(9)
 insert_ll.insert(2, 43)
 insert_ll.print_list()
+
+print()
+
+remove_ll = LinkedList(7)
+remove_ll.append(8)
+remove_ll.append(9)
+remove_ll.append(10)
+remove_ll.remove(2)
+remove_ll.print_list()
