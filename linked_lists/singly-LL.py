@@ -108,7 +108,20 @@ class LinkedList:
 
     #=====================================================================================================
 
-    
+    def get(self, index):
+        # check if the index is valid
+        if index < 0 or index >= self.length:
+            return None
+
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+
+        return temp.value
+
+    #=====================================================================================================
+
+
 
 append_ll = LinkedList(4)
 append_ll.append(2)
@@ -138,5 +151,13 @@ pop_first_ll.append(4)
 pop_first_ll.append(5)
 pop_first_ll.pop_first()
 pop_first_ll.print_list()
+
+print()
+
+get_ll = LinkedList(7)
+get_ll.append(8)
+get_ll.append(9)
+get_ll.append(10)
+print(get_ll.get(2))
 
 print()
