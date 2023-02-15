@@ -5,13 +5,24 @@ class Node:
 
 class Stack:
     def __init__(self, value):
-        new_node = Node()   # initialize the node
+        new_node = Node(value)   # initialize the node
         self.top = new_node # set the top of stack
         self.heght = 1  # keep track of length of stack
-    
-    
+
+    #=====================================================================================================
+
     def print_stack(self):
         temp = self.top
         while temp is not None:
             print(temp.value)
             temp = temp.next
+
+    #=====================================================================================================
+
+
+
+
+my_stack = Stack(4)
+my_stack.print_stack()
+
+print()
