@@ -36,6 +36,19 @@ class Stack:
     
     #=====================================================================================================
 
+    def pop(self):
+        if self.height == 0:
+            return None
+        
+        
+        temp = self.top
+        self.top = self.top.next
+        temp.next = None
+        
+        self.height -= 1
+
+        return temp
+
 
 
 my_stack = Stack(4)
@@ -48,3 +61,11 @@ push_stack.push(12)
 push_stack.push(15)
 push_stack.push(2)
 push_stack.print_stack()
+
+print()
+
+pop_stack = Stack(1)
+pop_stack.push(5)
+pop_stack.push(9)
+pop_stack.pop()
+pop_stack.print_stack()
