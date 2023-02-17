@@ -12,7 +12,7 @@ class HashTable:
     
     #=====================================================================================================
 
-    # hash method
+    # hash method = it determines the address for incoming key
     def __hash(self, key):
         my_hash = 0
         for letter in key:
@@ -23,7 +23,7 @@ class HashTable:
     why 23? = it's a prime number. you can put it any prime number instead.
 
     % len(self.data_map) = returns the remainder 0 ~ 6 if self.data_map = 7 (default)
-                           it is teh exactly our address space 
+                           it's the exactly our address space 
 
     ord() = returns an integer representing the Unicode character.
     ex:
@@ -42,8 +42,48 @@ class HashTable:
 
     #=====================================================================================================
 
+    def set_item(self, key, value):
+        index = self.__hash(key)    # computing an address here
+        
+        # initialize the empty list i the value part of the hash table
+        if self.data_map[index] == None:
+            self.data_map[index] = []
+        
+        self.data_map[index].append([key, value])
+
+    #=====================================================================================================
+
+    def get_item(self, key):
+        index = self.__hash(key)
+        
+        if self.data_map is not None:
+            for i in range(len(self.data_map[index])):
+                if self.data_map[index][i][0] == key:
+                    return self.data_map[index][i][1]
+                
+    #=====================================================================================================
 
 
 
-my_hash_table = HashTable()
-my_hash_table.print_table()
+hash_table = HashTable()
+hash_table.print_table()
+
+print()
+
+set_hash = HashTable(11)
+set_hash.set_item("haruto", 25)
+set_hash.set_item("yazan", 19)
+set_hash.set_item("yuta", 23)
+set_hash.set_item("hiro", 24)
+set_hash.print_table()
+
+print()
+
+get_hash = HashTable()
+get_hash.set_item("cookie", 1000)
+get_hash.set_item("water", 120)
+print(get_hash.get_item("cookie"))
+print(get_hash.get_item("water"))
+print(get_hash.get_item("tissue"))
+
+print()
