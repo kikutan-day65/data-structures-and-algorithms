@@ -63,6 +63,14 @@ class HashTable:
                 
     #=====================================================================================================
 
+    def keys(self):
+        all_keys = []
+        
+        for i in range(len(self.data_map)):
+            if self.data_map[i] is not None:
+                for j in range(len(self.data_map[i])):
+                    all_keys.append(self.data_map[i][j][0])
+        return all_keys
 
 
 hash_table = HashTable()
@@ -87,3 +95,10 @@ print(get_hash.get_item("water"))
 print(get_hash.get_item("tissue"))
 
 print()
+
+keys_hash = HashTable(5)
+keys_hash.set_item("note", 1000)
+keys_hash.set_item("pencil", 120)
+keys_hash.set_item("iphone", 20)
+keys_hash.set_item("glasses", 5)
+print(keys_hash.keys())
