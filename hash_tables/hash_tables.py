@@ -1,5 +1,5 @@
 class HashTable:
-    # hash constructor
+    # hash constructor = it creates an address space
     def __init__(self, size = 7):
         self.data_map = [None] * size # set the default size of hash table
     
@@ -21,7 +21,7 @@ class HashTable:
     
     """
     why 23? = it's a prime number. you can put it any prime number instead.
-    
+
     % len(self.data_map) = returns the remainder 0 ~ 6 if self.data_map = 7 (default)
                            it is teh exactly our address space 
 
@@ -39,6 +39,10 @@ class HashTable:
     def print_table(self):
         for i, val in enumerate(self.data_map):
             print(i, ": ", val)
+
+    #=====================================================================================================
+
+
 
 
 my_hash_table = HashTable()
