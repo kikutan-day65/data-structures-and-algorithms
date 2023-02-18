@@ -67,7 +67,29 @@ class DoublyLinkedList:
         self.length -= 1
 
         return temp
+    
+    #=====================================================================================================
 
+    def prepend(self, value):
+        new_node = Node(value)
+
+        # when th doubly linked list is empty
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        
+        # otherwise
+        else:
+            self.head.prev = new_node
+            new_node.next = self.head
+            self.head = new_node
+        
+        self.length += 1
+
+        return True
+    
+    #=====================================================================================================
+    
 
 doubly_LL = DoublyLinkedList(7)
 doubly_LL.print_list()
@@ -86,3 +108,13 @@ pop_doubly_LL.append(8)
 pop_doubly_LL.append(9)
 pop_doubly_LL.pop()
 pop_doubly_LL.print_list()
+
+print()
+
+prepend_doubly_LL = DoublyLinkedList(7)
+prepend_doubly_LL.append(8)
+prepend_doubly_LL.append(9)
+prepend_doubly_LL.prepend(10)
+prepend_doubly_LL.print_list()
+
+print()
