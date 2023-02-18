@@ -112,6 +112,34 @@ class DoublyLinkedList:
         self.length -= 1
 
         return temp
+    
+    #=====================================================================================================
+
+    def get(self, index):
+
+        # check if the index is valid
+        if index < 0 or index >= self.length:
+            return False
+        
+        temp = self.head
+
+        # when the index is near from head
+        if index < self.length / 2:
+            for _ in range(index):
+                temp = temp.next
+        
+        # when the index is near from tail
+        else:
+            temp = self.tail
+            for _ in range(self.length - 1, index, -1):
+                temp = temp.prev
+        
+        return temp.value
+    
+    """
+    to get a specific node in doubly linked list, we can optimize the code
+    depending on which head/tail the node is near from 
+    """
 
 
 doubly_LL = DoublyLinkedList(7)
@@ -147,5 +175,12 @@ pop_first_doubly_LL.append(2)
 pop_first_doubly_LL.append(3)
 pop_first_doubly_LL.pop_first()
 pop_first_doubly_LL.print_list()
+
+print()
+
+get_doubly_LL = DoublyLinkedList(4)
+get_doubly_LL.append(5)
+get_doubly_LL.append(6)
+print(get_doubly_LL.get(0))
 
 print()
