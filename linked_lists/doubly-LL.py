@@ -134,12 +134,23 @@ class DoublyLinkedList:
             for _ in range(self.length - 1, index, -1):
                 temp = temp.prev
         
-        return temp.value
+        return temp # to use set_value() return this, but to use only get() return temp.value
     
     """
     to get a specific node in doubly linked list, we can optimize the code
     depending on which head/tail the node is near from 
     """
+
+    #=====================================================================================================
+
+    def set_value(self, index, value):
+        temp = self.get(index)
+
+        if temp:
+            temp.value = value
+            return True
+
+        return False
 
 
 doubly_LL = DoublyLinkedList(7)
@@ -182,5 +193,13 @@ get_doubly_LL = DoublyLinkedList(4)
 get_doubly_LL.append(5)
 get_doubly_LL.append(6)
 print(get_doubly_LL.get(0))
+
+print()
+
+set_value_doubly_LL = DoublyLinkedList(3)
+set_value_doubly_LL.append(4)
+set_value_doubly_LL.append(5)
+set_value_doubly_LL.set_value(1, 23)
+set_value_doubly_LL.print_list()
 
 print()
