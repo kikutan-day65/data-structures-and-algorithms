@@ -182,6 +182,35 @@ class DoublyLinkedList:
         self.length += 1
 
         return True
+    
+    #=====================================================================================================
+
+    def remove(self, index):
+
+        # check if the index is valid
+        if index < 0 or index >= self.length:
+            return False
+        
+        # when the index is 0
+        if index == 0:
+            return self.pop_first()
+        
+        # when the index = lenght of doubly linked list
+        if index == self.length:
+            return self.pop()
+        
+        # otherwise
+        temp = self.get(index)
+        
+        temp.next.prev = temp.prev
+        temp.prev.next = temp.next
+        temp.next = None
+        temp.prev = None
+
+        self.length -= 1
+        
+        return temp
+
 
 doubly_LL = DoublyLinkedList(7)
 doubly_LL.print_list()
@@ -241,3 +270,10 @@ insert_doubly_LL.insert(0, 12)
 insert_doubly_LL.print_list()
 
 print()
+
+remove_doubly_LL = DoublyLinkedList(7)
+remove_doubly_LL.append(8)
+remove_doubly_LL.append(9)
+remove_doubly_LL.append(10)
+remove_doubly_LL.remove(2)
+remove_doubly_LL.print_list()
