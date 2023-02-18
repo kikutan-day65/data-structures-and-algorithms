@@ -53,7 +53,7 @@ class DoublyLinkedList:
         
         temp = self.tail
 
-        # when the linked list has only one item
+        # when the doubly linked list has only one item
         if self.length == 1:
             self.head = None
             self.tail = None
@@ -90,6 +90,29 @@ class DoublyLinkedList:
     
     #=====================================================================================================
     
+    def pop_first(self):
+        
+        # when the doubly linked list is empty
+        if self.length == 0:
+            return None
+        
+        temp = self.head
+        
+        # when the doubly linked list has only one item
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        
+        # otherwise
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+            temp.next = None
+        
+        self.length -= 1
+
+        return temp
+
 
 doubly_LL = DoublyLinkedList(7)
 doubly_LL.print_list()
@@ -116,5 +139,13 @@ prepend_doubly_LL.append(8)
 prepend_doubly_LL.append(9)
 prepend_doubly_LL.prepend(10)
 prepend_doubly_LL.print_list()
+
+print()
+
+pop_first_doubly_LL = DoublyLinkedList(1)
+pop_first_doubly_LL.append(2)
+pop_first_doubly_LL.append(3)
+pop_first_doubly_LL.pop_first()
+pop_first_doubly_LL.print_list()
 
 print()
