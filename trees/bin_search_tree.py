@@ -39,7 +39,7 @@ class BinarySearchTree:
 
 
     """
-    STEPs for inserting:
+    STEPs to insert:
         create new_node
         if root == None then root = new_node
         temp = self.root
@@ -48,7 +48,35 @@ class BinarySearchTree:
             if '<' go left, else '>' go right
             if None insert new_node, else move to next
     """
+
     #=====================================================================================================
+
+    def contains(self, value):
+        temp = self.root
+
+        while temp is not None:
+            if value < temp.value:
+                temp = temp.left
+
+            elif value > temp.value:
+                temp = temp.right
+            
+            else:
+                return True
+        
+        return False
+
+
+    """
+    STEPs to check contain
+        if root == None return False
+        temp = self.root
+        while temp is not None:
+            if '<' go left
+            elif '>' go right
+            else: return True
+        return False
+    """
 
 
 
@@ -67,3 +95,14 @@ print('Root->Left:', insert_tree.root.left.value)
 print('Root->Right:', insert_tree.root.right.value)
 
 print()
+
+contain_tree = BinarySearchTree()
+contain_tree.insert(21)
+contain_tree.insert(15)
+contain_tree.insert(30)
+contain_tree.insert(67)
+contain_tree.insert(12)
+contain_tree.insert(77)
+contain_tree.insert(32)
+print(contain_tree.contains(67))
+print(contain_tree.contains(9))
