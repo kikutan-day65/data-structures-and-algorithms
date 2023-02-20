@@ -19,10 +19,10 @@ class Graph:
     #=====================================================================================================
 
 
-add_graph = Graph()
-add_graph.add_vertex('A')
-add_graph.add_vertex('B')
-add_graph.print_graph()
+add_vertex_graph = Graph()
+add_vertex_graph.add_vertex('A')
+add_vertex_graph.add_vertex('B')
+add_vertex_graph.print_graph()
 
 print()
 
