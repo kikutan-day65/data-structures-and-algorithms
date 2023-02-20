@@ -18,11 +18,23 @@ class Graph:
 
     #=====================================================================================================
 
+    def add_edge(self, v1, v2):
+        if v1 in self.adj_list.keys() and v2 in self.adj_list.keys():
+            self.adj_list[v1].append(v2)
+            self.adj_list[v2].append(v1)
+            return True
+        return False
+    
 
-add_vertex_graph = Graph()
-add_vertex_graph.add_vertex('A')
-add_vertex_graph.add_vertex('B')
-add_vertex_graph.print_graph()
+vertex_graph = Graph()
+vertex_graph.add_vertex('A')
+vertex_graph.add_vertex('B')
+vertex_graph.print_graph()
 
 print()
 
+edge_graph = Graph()
+edge_graph.add_vertex(1)
+edge_graph.add_vertex(2)
+edge_graph.add_edge('D', 'F')
+edge_graph.print_graph()
