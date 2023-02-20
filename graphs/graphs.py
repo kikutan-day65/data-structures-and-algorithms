@@ -39,6 +39,15 @@ class Graph:
 
     #=====================================================================================================
 
+    def remove_vertex(self, vertex):
+        if vertex in self.adj_list.keys():
+            for other_vertex in self.adj_list[vertex]:
+                self.adj_list[other_vertex].remove(vertex)
+            del self.adj_list[vertex]
+            return True
+        return False
+
+
 add_vertex_graph = Graph()
 add_vertex_graph.add_vertex('A')
 add_vertex_graph.add_vertex('B')
@@ -67,3 +76,21 @@ rm_edge_graph.add_edge('C', 'A')
 rm_edge_graph.remove_edge('A', 'D')
 
 rm_edge_graph.print_graph()
+
+print()
+
+rm_vertex_graph = Graph()
+rm_vertex_graph.add_vertex('A')
+rm_vertex_graph.add_vertex('B')
+rm_vertex_graph.add_vertex('C')
+rm_vertex_graph.add_vertex('D')
+
+rm_vertex_graph.add_edge('A', 'B')
+rm_vertex_graph.add_edge('A', 'C')
+rm_vertex_graph.add_edge('A', 'D')
+rm_vertex_graph.add_edge('B', 'D')
+rm_vertex_graph.add_edge('C', 'D')
+
+rm_vertex_graph.remove_vertex('D')
+
+rm_vertex_graph.print_graph()
