@@ -99,6 +99,21 @@ class BinarySearchTree:
 
     #=====================================================================================================
 
+    def __r_insert(self, current_node, value):
+        if current_node == None:
+            return Node(value)
+
+        if value < current_node.value:
+            current_node.left = self.__r_insert(current_node.left, value)
+
+        if value > current_node.value:
+            current_node.right = self.__r_insert(current_node.right, value)
+        return current_node
+    
+    def r_insert(self, value):
+        if self.root == None:
+            self.root = Node(value)
+        return self.__r_insert(self.root, value)
 
 
 my_tree = BinarySearchTree()
@@ -130,17 +145,27 @@ print(contain_tree.contains(9))
 
 print()
 
-r_bst = BinarySearchTree()
-r_bst.insert(47)
-r_bst.insert(21)
-r_bst.insert(76)
-r_bst.insert(18)
-r_bst.insert(27)
-r_bst.insert(53)
-r_bst.insert(82)
+r_bst_contain = BinarySearchTree()
+r_bst_contain.insert(47)
+r_bst_contain.insert(21)
+r_bst_contain.insert(76)
+r_bst_contain.insert(18)
+r_bst_contain.insert(27)
+r_bst_contain.insert(53)
+r_bst_contain.insert(82)
 
 print('BST Contains: 27: ')
-print(r_bst.r_contains(27))
+print(r_bst_contain.r_contains(27))
 
 print('BST Contains: 17: ')
-print(r_bst.r_contains(17))
+print(r_bst_contain.r_contains(17))
+
+print()
+r_bst_insert = BinarySearchTree()
+r_bst_insert.insert(2)
+r_bst_insert.insert(1)
+r_bst_insert.insert(3)
+
+print('Root: ', r_bst_insert.root.value)
+print('Root -> Left: ', r_bst_insert.root.left.value)
+print('Root -> Right: ', r_bst_insert.root.right.value)
