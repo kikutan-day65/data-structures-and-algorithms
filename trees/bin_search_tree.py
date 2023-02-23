@@ -161,6 +161,7 @@ print('BST Contains: 17: ')
 print(r_bst_contain.r_contains(17))
 
 print()
+
 r_bst_insert = BinarySearchTree()
 r_bst_insert.insert(2)
 r_bst_insert.insert(1)
