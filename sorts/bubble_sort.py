@@ -10,6 +10,6 @@ def bubble_sort(my_list):
                 
     return my_list
 
-my_list = [3,6,1,2,5]
+my_list = [3,6,1,2,5,4]
 
 print(bubble_sort(my_list))
