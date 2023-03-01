@@ -1,3 +1,8 @@
+"""
+    time complexity: O(n^2) when list is already sorted
+"""
+
+
 def swap(mylist, index1, index2):
     temp = mylist[index1]
     mylist[index1] = mylist[index2]
@@ -16,19 +21,24 @@ def pivot(mylist, pivot_index, end_index):
     return swap_index
 
 
-def quick_sort(mylist, left, right):
+def quick_sort_helper(mylist, left, right):
     
     if left < right:
         pivot_index = pivot(mylist, left, right)
 
-        quick_sort(mylist, left, pivot_index - 1)
-        quick_sort(mylist, pivot_index + 1, right)
+        quick_sort_helper(mylist, left, pivot_index - 1)
+        quick_sort_helper(mylist, pivot_index + 1, right)
 
     return mylist
+
+
+def quick_sort(mylist):
+    return quick_sort_helper(mylist, 0, len(mylist) - 1)
+
 
 mylist = [4,6,1,7,3,2,5]
 
 print(pivot(mylist, 0, 6))
 print(mylist)
 
-print(quick_sort(mylist, 0, 6))
+print(quick_sort(mylist))
