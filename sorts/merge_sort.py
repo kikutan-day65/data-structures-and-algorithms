@@ -1,3 +1,9 @@
+"""
+    space complexity: O(n)
+    time complexity: O(n*log(n))
+
+"""
+
 def merge(list1, list2):
     combined = []
     i = 0
@@ -25,4 +31,23 @@ def merge(list1, list2):
     return combined
 
 
-print(merge([1,3,5,6], [2,4,7,8]))
+def merge_sort(mylist):
+
+    # base case for recursion
+    if len(mylist) == 1:
+        return mylist
+    
+    # divide the mylist in half,
+    mid_index = len(mylist) // 2
+
+    # and create two lists recursively
+    left = merge_sort(mylist[:mid_index])
+    right = merge_sort(mylist[mid_index:])
+
+    # merge them
+    return merge(left, right)
+
+
+mylist = [1,4,3,6,7,2,5,9,8]
+res = merge_sort(mylist)
+print(res)
