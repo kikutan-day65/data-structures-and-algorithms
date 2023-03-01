@@ -15,7 +15,20 @@ def pivot(mylist, pivot_index, end_index):
     swap(mylist, pivot_index, swap_index)
     return swap_index
 
+
+def quick_sort(mylist, left, right):
+    
+    if left < right:
+        pivot_index = pivot(mylist, left, right)
+
+        quick_sort(mylist, left, pivot_index - 1)
+        quick_sort(mylist, pivot_index + 1, right)
+
+    return mylist
+
 mylist = [4,6,1,7,3,2,5]
 
 print(pivot(mylist, 0, 6))
 print(mylist)
+
+print(quick_sort(mylist, 0, 6))
