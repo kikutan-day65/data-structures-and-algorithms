@@ -20,7 +20,7 @@ class HashTable:
         return my_hash
     
     """
-    why 23? = it's a prime number. you can put it any prime number instead.
+    why 23? = it's a prime number. you can put any prime number there.
 
     % len(self.data_map) = returns the remainder 0 ~ 6 if self.data_map = 7 (default)
                            it's the exactly our address space 
@@ -45,7 +45,7 @@ class HashTable:
     def set_item(self, key, value):
         index = self.__hash(key)    # computing an address here
         
-        # initialize the empty list i the value part of the hash table
+        # initialize the empty list in the value part of the hash table
         if self.data_map[index] == None:
             self.data_map[index] = []
         
