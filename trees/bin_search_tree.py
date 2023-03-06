@@ -24,17 +24,23 @@ class BinarySearchTree:
                 return False
         
             if new_node.value < temp.value:
+
+                # if there's no left child, insert the new node as the left child
                 if temp.left is None:
                     temp.left = new_node
                     return True
-        
+
+                # if there's no left child, insert the new node as the left child
                 temp = temp.left
         
-            else: 
+            else:
+
+                # if there's no right child, insert the new node as the right child 
                 if temp.right is None:
                     temp.right = new_node
                     return True
-        
+
+                # otherwise, continue iterating through the right subtree
                 temp = temp.right
 
 
